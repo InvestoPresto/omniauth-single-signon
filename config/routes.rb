@@ -1,4 +1,4 @@
-SingleSignon::Engine.routes.draw do
+OmniauthSingleSignon::Engine.routes.draw do
 
   match "/signin" => "sessions#new", :as => :signin
   match "/success" => "sessions#success", :as => :success

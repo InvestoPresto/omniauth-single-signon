@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
 
-  mount SingleSignon::Engine => ""
+  mount OmniauthSingleSignon::Engine => ""
   root :to => 'test#index'
 end

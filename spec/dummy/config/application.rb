@@ -9,7 +9,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require
-require "single_signon"
+require "omniauth_single_signon"
 
 module Dummy
   class Application < Rails::Application

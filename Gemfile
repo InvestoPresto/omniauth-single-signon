@@ -10,7 +10,6 @@ gem 'simple_form'
 # development dependencies will be added by default to the :development group.
 
 gem 'omniauth', :github => 'InvestoPresto/omniauth'
-gem 'omniauth-investopresto', :github => 'InvestoPresto/omniauth-investopresto'
 
 gemspec
 
