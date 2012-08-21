@@ -7,7 +7,7 @@ module OmniAuth
 
       option :name, 'single_signon'
       option :client_options, {
-        :site => 'http://login.investopresto.com'
+        :site => ENV['AUTH_SITE_URL']
       }
 
       uid { raw_info['id'] }

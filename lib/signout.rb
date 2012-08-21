@@ -6,7 +6,7 @@ module OmniAuth
       include OmniAuth::Strategy
 
       option :name, 'signout'
-      option :site, 'http://login.investopresto.com'
+      option :site, ENV['AUTH_SITE_URL']
       option :signout_path, '/signout'
 
       def request_phase
