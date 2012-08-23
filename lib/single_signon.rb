@@ -9,6 +9,7 @@ module OmniAuth
       option :client_options, {
         :site => ENV['AUTH_SITE_URL']
       }
+      option :provider_ignores_state, true
 
       uid { raw_info['id'] }
 
