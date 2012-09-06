@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   def self.find_or_create_by_omniauth(auth_hash)
     uid = auth_hash[:uid]
     if new_user?(uid)
-      user = create(:email => auth_hash[:info][:email])
+      user = create(:id => uid, :email => auth_hash[:info][:email])
       user.sign_up = true
     else
       user = find(uid)
