@@ -13,11 +13,20 @@ class User < ActiveRecord::Base
       user = find(uid)
       user.sign_up = false
     end
-
+    user.update_attributes user_info(auth_hash)
     user
   end
 
   def self.new_user?(uid)
     where(:id => uid).empty?
+  end
+
+private
+  def self.user_info(auth_hash)
+    {
+    :name       => auth_hash[:info][:name],
+    :location   => auth_hash[:info][:location],
+    :avatar_url => auth_hash[:info][:image]
+    }
   end
 end
