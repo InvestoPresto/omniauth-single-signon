@@ -14,9 +14,7 @@ module OmniAuth
       uid { raw_info['id'] }
 
       info do
-        {
-          :email => raw_info['email']
-        }
+        raw_info['info']
       end
 
       extra do
