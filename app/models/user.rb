@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
       user = find(uid)
       user.sign_up = false
     end
+    Rails.logger.warn auth_hash.to_yaml
     user.update_attributes user_info(auth_hash)
     user
   end
