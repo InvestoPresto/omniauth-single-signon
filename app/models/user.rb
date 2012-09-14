@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   def self.find_or_create_by_omniauth(auth_hash)
     uid = auth_hash[:uid]
     if new_user?(uid)
-      user = where(:id => auth_hash[:uid]).first_or_create(:email => auth_hash[:info][:email])
+      user = where(:id => auth_hash[:uid]).first_or_create
       user.sign_up = true
     else
       user = find(uid)
@@ -24,9 +24,10 @@ class User < ActiveRecord::Base
 private
   def self.user_info(auth_hash)
     {
-    :name       => auth_hash[:info][:name],
-    :location   => auth_hash[:info][:location],
-    :avatar_url => auth_hash[:info][:image]
-    }
+      :email      => auth_hash[:info][:email],
+      :name       => auth_hash[:info][:name],
+      :location   => auth_hash[:info][:location],
+      :avatar_url => auth_hash[:info][:image]
+    }.select { |k,v| v.present? }
   end
 end
