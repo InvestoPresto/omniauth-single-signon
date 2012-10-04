@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
       user = find(uid)
       user.sign_up = false
     end
-    user.update_attributes user_info(auth_hash)
+
     user
   end
 
@@ -21,13 +21,4 @@ class User < ActiveRecord::Base
     where(:id => uid).empty?
   end
 
-private
-  def self.user_info(auth_hash)
-    {
-      :email      => auth_hash[:info][:email],
-      :name       => auth_hash[:info][:name],
-      :location   => auth_hash[:info][:location],
-      :avatar_url => auth_hash[:info][:image]
-    }.select { |k,v| v.present? }
-  end
 end
