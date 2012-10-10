@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
       user.sign_up = false
     end
 
+    user.update_attributes(:email => auth_hash[:info][:email])
     user
   end
 
